@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App NAME: Coding Challenge By Tricia Chitwood</title>
+    <title>Considerate Done: Coding Challenge By Tricia Chitwood</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,8 +28,8 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/index.html">
-                <img src="/img/tcwhiteLogo600.png" class="d-inline-block align-text-center me-1" height="50" alt="">
-                APP NAME!!!!</a>
+                <img src="/img/Cdwhite.png" class="d-inline-block align-text-center me-1" height="50" alt="">
+                Considerate Done</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -58,21 +58,46 @@
 
     <main class="flex-shrink-0">
         <div class="container mt-5">
-            <h1>To Do List</h1>
-            <div class="row align-items-end">
-                <div class="col">
-                    <label class="form-label" for="message">To Do Item</label>
-                    <input type="text" name="message" id="message" class="form-control" placeholder="Enter a message">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="eventDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Pick a Location
+                        </button>
+                        <ul class="dropdown-menu" id="eventDropdownList" aria-labelledby="eventDropdown">
+                            <!-- City Data Goes Here -->
+
+                        </ul>
+                    </div>
+                    <table class="table table-striped">
+                        <tr>
+                            <th colspan="2" id="statsHeader">Stats For All Events</th>
+                        </tr>
+                        <tr>
+                            <td>Total Attendence</td>
+                            <td id="total">100</td>
+                        </tr>
+                        <tr>
+                            <td>Avererage Attendance</td>
+                            <td id="average">100</td>
+                        </tr>
+                        <tr>
+                            <td>Most Attended</td>
+                            <td id="most">100</td>
+                        </tr>
+                        <tr>
+                            <td>Least Attended</td>
+                            <td id="least">100</td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="mt-3 col">
-                    <button id="effYou" class="btn btn-primary">Display Me!</button>
+                <div class="col-12 col-md-6 first order-md-2">
+                    <img src="/img/cdmain.jpeg" class="img-fluid p-2" alt="">
                 </div>
             </div>
-            <div class="message mt-5">
-                <ol id="results" class="list-group list-group-numbered">
-                    <!-- My items will go here -->
-                </ol>
-            </div>
+
+
         </div>
     </main>
     <footer class="footer mt-auto py-3 sticky-footer">
@@ -101,13 +126,19 @@
             </div>
         </div>
     </footer>
+
+    <template id="dropdown-template">
+        <li><a class="dropdown-item" onclick="getEventData(this)" href="#"></a></li>
+    </template>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
     </script>
     <script src="/js/site.js"></script>
     <script>
-        document.getElementById("effYou").addEventListener("click", getMessage);
+        window.onload = (event) => {
+            buildDropdown();
+        };
     </script>
 </body>
 
