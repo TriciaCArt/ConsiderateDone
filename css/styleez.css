@@ -1,0 +1,61 @@
+:root {
+    --tc-darkColor: #292929;
+    --tc-lightColor: #d4d4d4;
+    --tc-primaryColor: #001e43;
+    --tc-secondaryColor: #ff993b;
+}
+
+body {
+    color: var(--tc-darkColor);
+    font-size: 1.2rem;
+}
+
+nav {
+    background-color: var(--tc-darkColor);
+}
+
+main>.container {
+    padding: 60px 15px 0;
+    margin-bottom: 5rem;
+}
+
+.sticky-footer {
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: var(--tc-lightColor);
+    background-color: var(--tc-darkColor);
+
+}
+
+.sizeMe {
+    font-size: 1.5rem;
+}
+
+.socialIcons>a {
+    color: var(--tc-lightColor);
+    font-size: 4rem;
+}
+
+.socialIcons:hover {
+    color: var(--tc-secondaryColor);
+}
+
+.checklist {
+    list-style: none;
+}
+
+.checklist i {
+    color: var(--tc-secondaryColor);
+}
+
+.techIcons {
+    font-size: 3rem;
+}
+
+.message {
+    font-weight: bold;
+}
+
+@media (min-width: 576px) {}
