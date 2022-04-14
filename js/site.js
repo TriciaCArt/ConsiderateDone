@@ -109,6 +109,8 @@ function buildDropdown() {
 
     displayStats(curEvents);
 
+    displayEventData(curEvents);
+
 }
 
 // this called everytime a city name is clicked in the dropdown
@@ -180,5 +182,57 @@ function displayStats(filteredEvents) {
             maximumFractionDigits: 0,
         }
     );
+
+}
+
+// this functino displays all of the event data in a grid on the bottom of the page
+function displayEventData(curEvents) {
+    let template = document.getElementById("eventData-template");
+    let eventBody = document.getElementById("eventBody");
+    eventBody.innerHTML = "";
+
+    for (let index = 0; index < curEvents.length; index++) {
+        let eventRow = document.importNode(template.content, true);
+
+        let eventCols = eventRow.querySelectorAll("td");
+        eventCols[0].textContent = curEvents[index].event;
+        eventCols[1].textContent = curEvents[index].city;
+        eventCols[2].textContent = curEvents[index].state;
+        eventCols[3].textContent = curEvents[index].attendance;
+        eventCols[4].textContent = new Date(curEvents[index].date).toLocaleDateString();
+        eventBody.appendChild(eventRow);
+    }
+}
+
+function saveEventData() {
+    // get all fo the course data from localstorage
+    let curEvents = getEvents();
+
+    let eventObj = {
+        event: "name",
+        city: "city",
+        state: "state",
+        attendance: 0,
+        date: "01/01/2000"
+    }
+
+    // get the values from the form
+    eventObj.event = document.getElementById("newEventName").value;
+    eventObj.event = document.getElementById("newEventCity").value;
+
+    let stateSel = document.getElementById("newEventState");
+    eventObj.state = stateSel.options[stateSel.selectedIndex].text;
+
+    let attendanceNumber = parseInt(document.getElementById("newEventAttendance").value, 10);
+    eventObj.attendance = attendanceNumber;
+
+    let eventDate = document.getElementById("newEventDate").value;
+    let eventDateFormatted = `${eventDate} 00:00`;
+    eventObj.date = new Date(eventDateFormatted).toLocaleDateString();
+
+    curEvents.push(eventObj);
+    localStorage.setItem("eventData", JSON.stringify(curEvents));
+
+    buildDropdown();
 
 }
