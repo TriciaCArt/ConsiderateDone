@@ -30,12 +30,12 @@ main>.container {
 }
 
 .sizeMe {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .socialIcons>a {
     color: var(--tc-lightColor);
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 .socialIcons:hover {
